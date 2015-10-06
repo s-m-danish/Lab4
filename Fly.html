@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+.tabs {
+  position: relative;   
+  min-height: 200px; /* This part sucks */
+  
+  
+  margin: 10px 0; 
+}
+.tab {
+  float: left;  
+  
+}
+.tab label {
+  background: lightblue; 
+  padding: 10px; 
+   
+  margin-left: -1px; 
+  position: relative;
+  left: 1px; 
+}
+.tab [type=radio] {
+     display:none;
+}
+.content {
+  position: absolute;
+  top: 28px;
+  left: 150px;
+  
+  
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+ 
+  opacity: 0.0;
+  filter: alpha(opacity=0); /* For IE8 and earlier */
+}
+[type=radio]:checked ~ label {
+  background: lightblue;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+	opacity: 1.0	;
+  filter: alpha(opacity=70); /* For IE8 and earlier */		
+  z-index: 1;
+}
+.plane{border:1x solid black;}
+
+.rectangle{
+  height: 200px;
+  width: 50px;
+  position: absolute;
+  background-color:orange;
+  -webkit-animation: obstacle 10s linear infinite; 
+  
+}
+
+.rectangle_big{
+  height: 250px;
+  width: 75px;
+  position: absolute;
+  background-color:orange;
+  -webkit-animation: obstacle 10s linear infinite; 
+  
+}
+
+
+
+#rocket{
+  top: 500px;
+  left: 750px;
+  position: absolute;
+ -webkit-animation: rocket 5s linear infinite; 
+}
+
+.hawk{
+   float:left;
+  top: 250px;
+  left: 1200px;
+  position: absolute;
+ -webkit-animation: hawks 5s linear infinite;
+}
+
+.cannon{
+   float:left;
+   top:500px;
+   left:1600px;
+   position: absolute;
+  -webkit-animation: obstacle 10s linear infinite; 
+}
+
+.sphere {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 500%;
+  background-color=black;
+  position: absolute;
+  top:500px;
+  left:1600px;
+  -webkit-animation: rocket 10s linear infinite; 
+  margin: 5%;
+}
+
+#myDIV{
+    width:1400px	 ;
+    height:700px ;
+    position: absolute;
+	border:5px solid red;
+    background-image: url('bg.jpg');
+	background-position: top left;
+    -webkit-animation: backgroundScroll 15s linear infinite;
+    animation: backgroundScroll 15s linear infinite;
+}
+
+
+@keyframes backgroundScroll {
+from {background-position: 0 0;}
+to {background-position: -1500px 0px;}
+}
+
+
+
+@-webkit-keyframes obstacle {
+    from { -webkit-transform: translateX(0px); }
+    to   { -webkit-transform:  translateX(-1500px);  }
+}
+
+@-webkit-keyframes rocket {
+    from { -webkit-transform: translateX(0px)translateY(0px); }
+    to   { -webkit-transform:  translateX(-1500px) translateY(-250px);  }
+}
+
+@-webkit-keyframes hawks {
+    from { -webkit-transform: translateX(0px) rotate(0deg)translateY(0px); }
+    to   { -webkit-transform:  translateX(-1500px)rotate(360deg) translateY(-250px);  }
+}
+
+
+</style>
+</head>
+<body>
+<div id="myDIV">
+
+<div class="rectangle" style= "top: 0;left: 800px;"></div>
+<div class="rectangle_big" style= "top: 450px;left: 1000px;"></div>
+<div class="rectangle" style= "top: 0;left: 1200px;height:250px"></div>
+
+<div class="rectangle" style= "top: 450px;left: 1300px;"></div>
+<div class="rectangle_big" style= "top: 0;left: 1500px;"></div>
+
+
+<div id="rocket"><img src="rocket.jpg" width="125" height="100"></div>
+<div class="hawk"><img src="hawk.jpg" width="75" height="50"></div>
+
+<div class="hawk" style="top:300px;"><img src="hawk.jpg" width="75" height="50" ></div>
+
+<div class="hawk" style="top:200px;"><img src="hawk.jpg" width="75" height="50" ></div>
+
+<div class="cannon"> <img src="cannon.jpg" width="150" height="90" >    </div>
+
+<div class="sphere"></div>
+
+
+<div class="tabs">
+   
+   <div class="tab">
+       <input type="radio" id="tab-1" name="tab-group-1" checked>
+       <label for="tab-1">Mid</label>
+       
+       <div class="content">
+			
+           <img src="gyro.jpg" width="125" height="100" style="transform: translate(0,150px);">
+	   </div> 
+
+   </div>
+    
+   <div class="tab">
+       <input type="radio" id="tab-2" name="tab-group-1">
+       <label for="tab-2">Up</label>
+       
+       <div class="content">
+			<img src="gyro.jpg" width="125" height="100" style="transform: translate(0,75px);">
+       </div> 
+   </div>
+    
+    <div class="tab">
+       <input type="radio" id="tab-3" name="tab-group-1">
+       <label for="tab-3">Down</label>
+     
+       <div class="content">
+          <img src="gyro.jpg" width="125" height="100" style="transform: translate(0,225px);">
+       </div> 
+   </div>
+    
+</div>
+
+
+
+
+
+</div>
+</body>
+</html>
+
+
+
